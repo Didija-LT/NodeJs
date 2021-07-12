@@ -5,11 +5,19 @@ module.exports = {
     return Article.findAll()
 },
 // méthodes à implémenter
-getArticle(offset = 0, limit = 10) { },
+getArticle(offset = 0, limit = 10) {
+  return Article.findAndCountAll({
+    where: {},
+    limit:limit,
+    offset:offset
+  })
+ },
 getTitle() { },
 getAuthors() { },
 getGuests(){ }, 
-getUser(id) { },
+getUser(id) {
+  return Article.findOne({ where:{id} });
+ },
 getUserByEmail(email) { },
 addUser(user) { },
 updateUser() { },

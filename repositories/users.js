@@ -4,7 +4,13 @@ module.exports = {
     return User.findAll()
 },
 // méthodes à implémenter
-getUsers(offset = 0, limit = 10) { },
+getUsers(offset = 0, limit = 10) {
+  return User.findAndCountAll({
+    where: {},
+    limit:limit,
+    offset:offset
+  })
+ },
 getAdmins() { },
 getAuthors() { },
 getGuests(){ }, 
